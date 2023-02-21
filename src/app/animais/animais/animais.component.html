@@ -1,0 +1,44 @@
+<mat-card style="padding: 15px; min-height: 100vh">
+  <div
+    *ngIf="(!animais || animais.length == 0) && !naoPossuiAnimais"
+    class="loading"
+  >
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+  <div *ngIf="naoPossuiAnimais">
+    <div class="titulo-principal">Nenhum animal disponível para adoção</div>
+  </div>
+
+  <div class="dados" *ngIf="animais && animais.length > 0">
+    <div class="titulo-principal">Animais disponíveis para adoção</div>
+    <table mat-table [dataSource]="animais">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="especie">
+        <th mat-header-cell *matHeaderCellDef>Espécie</th>
+        <td mat-cell *matCellDef="let element">{{ element.especie }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="raca">
+        <th mat-header-cell *matHeaderCellDef>Raça</th>
+        <td mat-cell *matCellDef="let element">{{ element.raca }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="idade">
+        <th mat-header-cell *matHeaderCellDef>Idade</th>
+        <td mat-cell *matCellDef="let element">{{ element.idade }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</mat-card>

@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+
+.dados {
+  border: 1px solid rgb(227, 229, 243);
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 10px;
+
+  .titulo-principal {
+
+    margin-left: 10px;
+    color: #673ab7;
+    font-weight: bold;
+  }
+}
+
+.loading {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    width: 55px !important;
+    height: 55px !important;
+  }
+}
+
+
